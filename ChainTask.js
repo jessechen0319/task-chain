@@ -1,31 +1,32 @@
 
 var util = require('util');
-var events = require('events');
+var EventEmitter = require('events').EventEmitter;
 
-function ChainTask(processer){
-    let that = this;
-    this.processer = processer?processer:()=>{
-        that.start();
-        that.end();
-    };
+class ChainTask extends EventEmitter{
 
-    this.setProcesser = (processer)=>{
+    constructor(processer){
+        super();
         this.processer = processer?processer:()=>{
-            that.start();
-            that.end();
-        };
-    };
-
-    this.start = ()=>{
-        that.emit('start');
+            this.start();
+            this.end();
+        };;
     }
 
-    this.end = ()=>{
-        that.emit('end');
+    setProcesser(processer){
+        this.processer = processer?processer:()=>{
+            this.start();
+            this.end();
+        };
+    }
+
+    start(){
+        this.emit('start');
+    }
+
+    end(){
+        this.emit('end');
     }
 }
 
 
-
-util.inherits(ChainTask, events.EventEmitter);
 module.exports = ChainTask;
