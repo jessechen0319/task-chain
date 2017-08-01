@@ -1,5 +1,4 @@
 
-var util = require('util');
 var EventEmitter = require('events').EventEmitter;
 
 class ChainTask extends EventEmitter{

@@ -1,10 +1,13 @@
 let ChainTask = require('./ChainTask');
 
-function ChainTaskRunner(){
-    this.taskQueue = [];
-    this.isRunning = false;
-    let that = this;
-    this.addTask = (task)=>{
+class ChainTaskRunner{
+    constructor(){
+        this.taskQueue = [];
+        this.isRunning = false;
+    }
+
+    addTask(task){
+        let that = this;
         if(task && task instanceof ChainTask){
             that.taskQueue.push(task);
             if(!that.isRunning){
@@ -12,10 +15,11 @@ function ChainTaskRunner(){
                 that.startRun();
             }
         }
-    };
+    }
 
-    this.startRun = ()=>{
-        //check if the list is empty
+    startRun(){
+        let that = this;
+         //check if the list is empty
         console.log(`running with task length->${that.taskQueue.length}`)
         if(that.taskQueue.length==0){
             that.isRunning = false;
@@ -37,7 +41,8 @@ function ChainTaskRunner(){
                 
             }
         }
-    };
+    }
 }
+
 
 module.exports = ChainTaskRunner;
