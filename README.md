@@ -19,3 +19,6 @@ but in your processer or your task, you need to call
 to end the task, if you donot end the task manually, the task will keep running~!
 
 for more detail, you can refer to example: ChainTaskTester.js
+
+
+GITHUB: https://github.com/jessechen0319/task-chain
