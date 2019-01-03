@@ -8,6 +8,8 @@ for eack banch of tasks, you need to create a task runner:
 
 after that, you can push your task to the task runner:
 
+`let chainTask1 = new ChainTask(()->{ setTimeout(function(){chainTask1.end()}, 2000) }); `
+
 `chainTaskRunner.addTask(chainTask1);`
 
 but in your processer or your task, you need to call
