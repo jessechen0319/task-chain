@@ -2,6 +2,12 @@
 
 this is project is about running tasks one by one.
 
+you can import the task runner and task object as:
+`
+let ChainTask = require('task-chain').ChainTask;
+let ChainTaskRunner = require('task-chain').ChainTaskRunner;
+`
+
 for eack banch of tasks, you need to create a task runner:
 
 `let chainTaskRunner = new ChainTaskRunner();`
